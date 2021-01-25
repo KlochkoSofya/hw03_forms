@@ -1,13 +1,11 @@
 {% extends "posts/base.html" %}
-{% block title %}Зарегистрироваться{% endblock %}
 {% block content %}
 {# загружаем фильтр #}
 {% load user_filters %}
-
 <div class="row justify-content-center">
     <div class="col-md-8 p-5">
         <div class="card">
-            <div class="card-header">Зарегистрироваться</div>
+            <div class="card-header">New post</div>
             <div class="card-body">
                 
               {% for error in form.errors %}
@@ -16,7 +14,7 @@
                   </div>
                 {% endfor %}
 
-                <form method="post" action="{% url 'signup' %}">
+                <form method="post" action="{% url 'new_post' %}">
                     {% csrf_token %}
 
                     {% for field in form %}
@@ -36,7 +34,7 @@
 
                     <div class="col-md-6 offset-md-4">              
                             <button type="submit" class="btn btn-primary">
-                                Зарегистрироваться
+                                save
                             </button>
                     </div>
                 </form>
@@ -46,4 +44,3 @@
 </div> <!-- row -->
 
 {% endblock %}
-
